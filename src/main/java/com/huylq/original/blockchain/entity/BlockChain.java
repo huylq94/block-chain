@@ -25,7 +25,7 @@ public class BlockChain {
         return this.chains.get(this.chains.size() - 1);
     }
 
-    public void addBlock(Block block) {
+    public Block addBlock(Block block) {
         Block lastBlock = getLastBlock();
         Block newBlock = new Block(lastBlock.getHash(), block.getData());
         System.out.println("Start mining....");
@@ -36,6 +36,8 @@ public class BlockChain {
         System.out.println("Mine: " + elapsedTimeInSecond + "s");
         System.out.println("End mining: " + newBlock);
         this.chains.add(newBlock);
+
+        return newBlock;
     }
 
     public boolean isValid() {
